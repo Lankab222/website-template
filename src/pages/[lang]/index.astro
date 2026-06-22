@@ -1,0 +1,409 @@
+---
+export const prerender = true;
+import { languages, defaultLang } from "~/i18n/ui";
+import { useTranslations } from "~/i18n/utils";
+import { Image } from "astro:assets";
+import bentoCode from "~/assets/bento-code.webp";
+import logoVite from "~/assets/logos/Vite.js.webp";
+import logoCloudflare from "~/assets/logos/Cloudflare.webp";
+import logoAstro from "~/assets/logos/Astro.webp";
+import logoReact from "~/assets/logos/React.webp";
+import logoTailwind from "~/assets/logos/Tailwind.webp";
+import logoFramer from "~/assets/logos/Motion.webp";
+import Layout from "~/layouts/Layout.astro";
+import Schema from "~/components/layout/Schema.astro";
+import Hero from "~/components/sections/Hero.astro";
+import Section from "~/components/layout/Section.astro";
+import LatestPosts from "~/components/sections/LatestPosts.astro";
+import BentoGrid from "~/components/sections/BentoGrid.astro";
+import BentoItem from "~/components/ui/BentoItem.astro";
+import {
+    Cpu,
+    Globe,
+    Zap,
+    BarChart,
+    ShieldCheck,
+    Settings,
+    FileCode,
+    Search,
+    Moon,
+    Eye,
+} from "lucide-react";
+import FeaturesList from "~/components/sections/FeaturesList.astro";
+import FeatureItem from "~/components/ui/FeatureItem.astro";
+
+import Testimonials from "~/components/sections/Testimonials.astro";
+import Testimonial from "~/components/ui/Testimonial.astro";
+import Stats from "~/components/sections/Stats.astro";
+import StatItem from "~/components/ui/StatItem.astro";
+import CTA from "~/components/sections/CTA.astro";
+import FAQ from "~/components/sections/FAQ.astro";
+import LogoCloud from "~/components/sections/LogoCloud.astro";
+import TechStack from "~/components/sections/TechStack.astro";
+import NewsletterSection from "~/components/sections/NewsletterSection.astro";
+
+export async function getStaticPaths() {
+    return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang = defaultLang } = Astro.params;
+const t = useTranslations(lang);
+
+const logos = [
+    { name: "Vite", src: logoVite, description: t["logo.vite.desc"] },
+    {
+        name: "Cloudflare",
+        src: logoCloudflare,
+        description: t["logo.cloudflare.desc"],
+    },
+    { name: "Astro", src: logoAstro, description: t["logo.astro.desc"] },
+    { name: "React", src: logoReact, description: t["logo.react.desc"] },
+    {
+        name: "Tailwind CSS",
+        src: logoTailwind,
+        description: t["logo.tailwind.desc"],
+    },
+    {
+        name: "Framer Motion",
+        src: logoFramer,
+        description: t["logo.framer.desc"],
+    },
+];
+
+const benefits = [
+    {
+        title: t["benefits.1.title"],
+        description: t["benefits.1.desc"],
+        icon: Settings,
+    },
+    {
+        title: t["benefits.2.title"],
+        description: t["benefits.2.desc"],
+        icon: FileCode,
+    },
+    {
+        title: t["benefits.3.title"],
+        description: t["benefits.3.desc"],
+        icon: Search,
+    },
+    {
+        title: t["benefits.4.title"],
+        description: t["benefits.4.desc"],
+        icon: Moon,
+    },
+    {
+        title: t["benefits.5.title"],
+        description: t["benefits.5.desc"],
+        icon: Eye,
+    },
+    {
+        title: t["benefits.6.title"],
+        description: t["benefits.6.desc"],
+        icon: Globe,
+    },
+];
+
+const stats = [
+    { value: "10k+", label: t["stats.downloads"] },
+    { value: "99.9%", label: t["stats.uptime"] },
+    { value: "50M+", label: t["stats.requests"] },
+    { value: "24/7", label: t["stats.support"] },
+];
+
+const testimonials = [
+    {
+        text: t["testimonials.1.text"],
+        author: t["testimonials.1.author"],
+        role: t["testimonials.1.role"],
+    },
+    {
+        text: t["testimonials.2.text"],
+        author: t["testimonials.2.author"],
+        role: t["testimonials.2.role"],
+    },
+    {
+        text: t["testimonials.3.text"],
+        author: t["testimonials.3.author"],
+        role: t["testimonials.3.role"],
+    },
+    {
+        text: t["testimonials.4.text"],
+        author: t["testimonials.4.author"],
+        role: t["testimonials.4.role"],
+    },
+    {
+        text: t["testimonials.5.text"],
+        author: t["testimonials.5.author"],
+        role: t["testimonials.5.role"],
+    },
+];
+
+const homeFaqs = [
+    { question: t["faq.home.1.q"], answer: t["faq.home.1.a"] },
+    { question: t["faq.home.2.q"], answer: t["faq.home.2.a"] },
+    { question: t["faq.home.3.q"], answer: t["faq.home.3.a"] },
+    { question: t["faq.home.4.q"], answer: t["faq.home.4.a"] },
+    { question: t["faq.home.5.q"], answer: t["faq.home.5.a"] },
+];
+---
+
+<Layout
+    title="مؤسسة طيف الاعمار للمقاولات"
+    description="نحن نقدم خدمات البناء والتصميم الداخلي والخارجي للمنازل والمباني التجارية. فريقنا من الخبراء يضمن جودة عالية ونتائج رائعة."
+>
+    <Schema
+        item={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Cooper",
+            url: Astro.site,
+            potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: `${Astro.site}/search?q={search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+            },
+        }}
+    />
+    <Schema
+        item={{
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "Cooper",
+            operatingSystem: "Web",
+            applicationCategory: "DeveloperApplication",
+            offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+            },
+            aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                ratingCount: "120",
+            },
+        }}
+    />
+
+    <Hero
+        title={t["hero.title"]}
+        highlight={t["hero.highlight"]}
+        description={t["hero.subtitle"]}
+        primaryCta={{ text: t["hero.getStarted"], href: `tel:+967712345678` }}
+        secondaryCta={{ text: t["hero.learnMore"], href: `/${lang}/features` }}
+    />
+
+    <!-- <LogoCloud title={t['logo.title']} logos={logos} /> -->
+
+    <Section class="py-0 overflow-visible">
+        <BentoGrid
+            title={t["bento.title"]}
+            description={t["bento.description"]}
+        >
+            <!-- Large Item -->
+            <!-- <BentoItem class="md:col-span-2 group">
+                <div
+                    class="absolute top-0 right-0 w-[300px] h-[300px] bg-linear-to-br from-primary/20 to-purple-500/20 rounded-full blur-[80px] -mr-20 -mt-20"
+                >
+                </div>
+
+                <div class="relative z-10 h-full flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-white/10 flex items-center justify-center mb-6"
+                        >
+                            <ShieldCheck
+                                className="w-6 h-6 text-primary dark:text-white"
+                            />
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">
+                            {t["bento.item1.title"]}
+                        </h3>
+                        <p class="text-muted-foreground">
+                            {t["bento.item1.desc"]}
+                        </p>
+                    </div>
+
+                </div>
+            </BentoItem> -->
+
+            
+            <!-- Tall Item -->
+            <BentoItem class="md:row-span-2 group">
+                <div
+                    class="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent z-10"
+                >
+                </div>
+                <Image
+                    src={bentoCode}
+                    alt="Code"
+                    width={800}
+                    height={1000}
+                    quality={70}
+                    class="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-700"
+                />
+
+                <div class="relative z-20 h-full flex flex-col justify-end">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4"
+                    >
+                        <ShieldCheck className="w-6 h-6 text-white" />
+                    </div>
+                    <h1 class="text-white text-3xl font-bold mb-2">
+                        {t["bento.item2.title"]}
+                    </h1>
+                    <p class="text-white text-sm">{t["bento.item2.desc"]}</p>
+                    <div class="mt-6 not-prose">
+                        <div class="flex items-center gap-4 justify-center">
+                            <a
+                                href="https://wa.me/967730266665"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center w-12 h-12 bg-[#25D366] text-white rounded-full transition-all duration-300 shadow-md hover:scale-105 active:scale-95 shrink-0"
+                                style="text-decoration: none;"
+                                aria-label="تواصل عبر الواتساب"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-6 h-6 block shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-4.01 3.96c-.14 0-.3.02-.45.05c-.15.03-.35.1-.5.25c-.24.23-.74.68-.74 1.65s.76 1.91 1.05 2.29c.29.38 1.7 2.65 4.12 3.65c.57.23 1.01.38 1.36.48c.57.17 1.1.15 1.51.09c.46-.07 1.42-.58 1.62-1.14c.2-.56.2-1.04.14-1.14c-.06-.1-.23-.16-.52-.3s-1.72-.85-1.98-.95c-.26-.11-.45-.16-.65.13c-.2.29-.75.96-.92 1.15c-.17.2-.34.23-.63.08c-.29-.14-1.23-.45-2.34-1.44c-.86-.77-1.44-1.72-1.61-2.01c-.17-.29-.02-.45.13-.59c.14-.13.29-.35.44-.52c.15-.17.2-.29.3-.48c.1-.2.05-.38-.02-.52c-.08-.14-.66-1.59-.9-2.18c-.23-.58-.47-.5-.65-.51c-.16-.01-.34-.01-.48-.01"
+                                    ></path>
+                                </svg>
+                            </a>
+
+                            <a
+                                href="tel:+967730266665"
+                                class="flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full transition-all duration-300 shadow-md hover:scale-105 active:scale-95 shrink-0"
+                                style="text-decoration: none;"
+                                aria-label="اتصل بنا"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-6 h-6 block shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </BentoItem>
+
+            <!-- Small Item 1 -->
+            <!-- <BentoItem
+                class="flex flex-col justify-center text-center hover:bg-white/10 transition-colors"
+            >
+                <div
+                    class="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-4"
+                >
+                    <Zap className="w-6 h-6" />
+                </div>
+                <h3 class="text-lg font-bold">{t["bento.item3.title"]}</h3>
+                <p class="text-sm text-muted-foreground mt-2">
+                    {t["bento.item3.desc"]}
+                </p>
+            </BentoItem> -->
+
+            <!-- Small Item 2 -->
+            <!-- <BentoItem
+                class="flex flex-col justify-center text-center hover:bg-white/10 transition-colors"
+            >
+                <div
+                    class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-4"
+                >
+                    <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 class="text-lg font-bold">{t["bento.item4.title"]}</h3>
+                <p class="text-sm text-muted-foreground mt-2">
+                    {t["bento.item4.desc"]}
+                </p>
+            </BentoItem> -->
+
+            <!-- Wide Item -->
+            <!-- <BentoItem class="md:col-span-2 flex items-center justify-between gap-8 group">
+            <div class="relative z-10">
+                    <h3 class="text-2xl font-bold mb-2">{t['bento.item5.title']}</h3>
+                    <p class="text-muted-foreground max-w-sm">{t['bento.item5.desc']}</p>
+            </div>
+            <div class="relative z-10 w-32 h-32 shrink-0 bg-linear-to-tr from-primary to-purple-500 rounded-2xl flex items-center justify-center shadow-lg transform rotate-6 group-hover:rotate-12 transition-transform">
+                <BarChart className="w-16 h-16 text-white" />
+            </div>
+        </BentoItem> -->
+        </BentoGrid>
+    </Section>
+
+    <LatestPosts count={6} />
+
+    <!-- <Section class="py-24">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-4">{t['benefits.title']}</h2>
+            <p class="text-muted-foreground">{t['benefits.subtitle']}</p>
+        </div>
+        <FeaturesList>
+            {benefits.map((benefit) => (
+                <FeatureItem title={benefit.title} description={benefit.description}>
+                    <benefit.icon slot="icon" className="w-6 h-6" />
+                </FeatureItem>
+            ))}
+        </FeaturesList>
+    </Section> -->
+
+    <Section id="tech-stack" class="py-24 bg-foreground/2">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-4 italic">
+                {t["techstack.title"]}
+            </h2>
+            <p class="text-muted-foreground">{t["techstack.subtitle"]}</p>
+        </div>
+        <div class="max-w-6xl mx-auto px-6">
+            <TechStack t={t} />
+        </div>
+    </Section>
+
+    <!-- <Section class="py-0 overflow-visible">
+    <Stats>
+        {stats.map((stat) => (
+            <StatItem value={stat.value} label={stat.label} />
+        ))}
+    </Stats>
+    </Section> -->
+
+    <!-- <Section class="py-0 overflow-visible">
+    <Testimonials>
+      {testimonials.map((testimonial) => (
+        <Testimonial 
+          text={testimonial.text}
+          author={testimonial.author}
+          role={testimonial.role}
+        />
+      ))}
+    </Testimonials>
+    </Section> -->
+
+    <!-- <Section class="py-0 overflow-visible">
+    <FAQ items={homeFaqs} />
+    </Section> -->
+
+    <!-- <NewsletterSection 
+        title="Stay Informed" 
+        description="Join our newsletter to receive the latest updates, technical deep-dives, and exclusive content from the Cooper universe."
+    /> -->
+
+    <CTA
+        title={t["cta.readyToLaunch"]}
+        description={t["cta.description"]}
+        primaryBtn={{ text: t["cta.primary"], href: `tel:+967730266665` }}
+        secondaryBtn={{ text: t["cta.secondary"], href: `https://wa.me/967730266665` }}
+        disclaimer={t["cta.disclaimer"]}
+    />
+</Layout>
