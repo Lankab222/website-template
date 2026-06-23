@@ -15,7 +15,7 @@ export const siteConfig = {
     enabled: true,
   },
   announcement: {
-    enabled: true,   // التحكم في ظهور الإعلان
+    enabled: false,   // التحكم في ظهور الإعلان
     id: 'upgrade_v1_1_1', // Change this ID to reshow the banner
     link: '/changelog',
     localizeLink: true, // Set to true to apply i18n routing to the link, false for external/absolute links
@@ -34,7 +34,7 @@ export const siteConfig = {
     },
     address: {
       city: 'ابو ظبي',
-      full: 'Interstellar Space Station'
+      full: 'مدينة ابوظبي، بني ياس، الامارات العربية المتحدة',
     }
   },
   analytics: {
