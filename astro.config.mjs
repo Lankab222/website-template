@@ -50,7 +50,7 @@ function getAdapter() {
 }
 
 export default defineConfig({
-  site: 'https://website-template-cdl.pages.dev',
+  site: 'https://www.taifalemar.site/',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co'],
