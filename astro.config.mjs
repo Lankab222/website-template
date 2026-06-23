@@ -50,7 +50,7 @@ function getAdapter() {
 }
 
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://cooper.gladtek.com',
+  site: 'https://website-template-cdl.pages.dev',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co'],
