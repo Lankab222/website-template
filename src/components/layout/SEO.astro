@@ -9,9 +9,10 @@ interface Props {
   article?: boolean;
   noindex?: boolean;
   nofollow?: boolean;
+  keywords?: string; // (إضافة جديدة) تعريف الكلمات المفتاحية
 }
 
-const { title, description, image, imageWidth, imageHeight, imageAlt, article = false, noindex = false, nofollow = false } = Astro.props;
+const { title, description, image, imageWidth, imageHeight, imageAlt, article = false, noindex = false, nofollow = false, keywords } = Astro.props;
 import { siteConfig } from '~/site.config';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
@@ -41,7 +42,7 @@ const robots = [
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-
+{keywords && <meta name="keywords" content={keywords} />}
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={article ? 'article' : 'website'} />
 <meta property="og:url" content={Astro.url.toString()} />
