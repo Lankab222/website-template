@@ -9,7 +9,7 @@ export const siteConfig = {
     alt: 'Cooper Logo',
     strategy: 'invert' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
   },
-  ogImage: '/og-image.webp',
+  ogImage: '/og-image1.jpg', // Default Open Graph image
   primaryColor: '#00008B', // Default primary color
   search: {
     enabled: true,

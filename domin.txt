@@ -1,0 +1,6 @@
+norm.ns.cloudflare.com
+rayne.ns.cloudflare.com
+
+"google-site-verification=8kkcsPZq9HoDhCoFgTQVGgq9gD-l9lVCZbhVlREcCHQ"
+TXT
+taifalemar.site
