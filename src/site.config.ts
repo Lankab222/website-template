@@ -29,7 +29,7 @@ export const siteConfig = {
       sales: 'sales@interstellar.com',
     },
     phone: {
-      main: '+730266665',
+      main: '+971544748420',
       label: 'اتصل بنا',
     },
     address: {
@@ -101,7 +101,7 @@ export const NAV_LINKS = [
 ];
 
 export const ACTION_LINKS = {
-  primary: { label: 'اتصل بنا', href: 'tel:+730266665' },
+  primary: { label: 'اتصل بنا', href: 'tel:+971544748420' },
   social: { 
     twitter: 'https://twitter.com/gladtek',
     linkedin: 'https://linkedin.com/company/gladtek',
