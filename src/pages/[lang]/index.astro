@@ -3,7 +3,7 @@ export const prerender = true;
 import { languages, defaultLang } from "~/i18n/ui";
 import { useTranslations } from "~/i18n/utils";
 import { Image } from "astro:assets";
-import bentoCode from "~/assets/bento-code.webp";
+import bentoCode from "~/assets/bento-code.jpg";
 import logoVite from "~/assets/logos/Vite.js.webp";
 import logoCloudflare from "~/assets/logos/Cloudflare.webp";
 import logoAstro from "~/assets/logos/Astro.webp";
@@ -150,6 +150,7 @@ const homeFaqs = [
 <Layout
     title="مؤسسة طيف الاعمار للمقاولات | اصباغ، ديكورات، ترميمات 0544748420"
     description="مؤسسة طيف الاعمار للاصباغ والديكورات وجميع اعمال الترميمات. نوفر كادر فني متخصص، أسعار مناسبة، دقة وجودة في التنفيذ في جميع أعمالكم."
+    
 >
 
     <Schema
@@ -359,7 +360,7 @@ const homeFaqs = [
         </FeaturesList>
     </Section> -->
 
-    <Section id="tech-stack" class="py-24 bg-foreground/2">
+    <Section id="tech-stack" class="py-10 bg-foreground/2">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl font-bold mb-4 italic">
                 {t["techstack.title"]}
@@ -407,4 +408,16 @@ const homeFaqs = [
         secondaryBtn={{ text: t["cta.secondary"], href: `https://wa.me/971544748420` }}
         disclaimer={t["cta.disclaimer"]}
     />
+    <!-- الخريطة -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58183.61949593578!2d54.67656582944061!3d24.295018776997075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e371c349ddf2f%3A0xa49228e3d5f7c257!2z2KjZhtmKINmK2KfYsyAtINij2KjZiCDYuNio2YogLSDYp9mE2KXZhdin2LHYp9iqINin2YTYudix2KjZitipINin2YTZhdiq2K3Yr9ip!5e0!3m2!1sar!2s!4v1782569348978!5m2!1sar!2s"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                    >
+                    </iframe>
+                </div>
 </Layout>

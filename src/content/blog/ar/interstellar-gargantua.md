@@ -1,25 +1,11 @@
 ---
-title: 'علم غارغانتوا'
-description: 'استكشاف الفيزياء وراء الثقب الأسود الهائل في Interstellar.'
+title: 'الأصباغ الخارجية وطلاء الواجهات'
+description: 'الأصباغ الخارجية وطلاء الواجهات'
 pubDate: '2025-11-10'
-heroImage: '~/assets/blog/interstellar-gargantua.webp'
-author: 'joseph-cooper'
-tags: ["interstellar", "science", "black-hole"]
+heroImage: '~/assets/blog/123.jpg'
+author: 'طيف الاعمار'
+tags: ["اصباغ", "اصباغ خارجية", "واجهات"]
 ---
 
-غارغانتوا ليس مجرد مشهد بصري؛ إنها معجزة في محاكاة الفيزياء النظرية. معادلات كيب ثورن جلبت هذا العملاق إلى الحياة.
-
-## أفق الحدث
-
-قرص التراكم المتوهج ينحني بفعل الجاذبية، مما يخلق تأثير الهالة.
-
-## تمدد الزمن
-
-بالقرب من هذه الكتلة، يتباطأ الوقت بشكل كبير بالنسبة للأرض. هذا هو مفتاح الجوهر العاطفي للفيلم.
-
-
-
-## للمزيد من القراءة
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+واجهة المبنى هي عنوانه، لذا نوفر حلول طلاء خارجية فائقة الجودة مصممة لتحمل أقسى الظروف المناخية. نقوم بتنفيذ دهانات "البروفايل" و"كسر الرخام" التي توفر حماية متكاملة للواجهات ضد التشققات، الرطوبة، وأشعة الشمس، مع ضمان ثبات الألوان لسنوات طويلة وإعطاء مظهر خارجي فخم للمبنى.
 
