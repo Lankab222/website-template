@@ -15,7 +15,7 @@ import cooperImage from '~/assets/blog/interstellar-cooper.webp';
 import brandImage from '~/assets/blog/interstellar-brand.webp';
 import murphyImage from '~/assets/blog/interstellar-murphy.webp';
 import tarsImage from '~/assets/blog/interstellar-tars-illustration.webp';
-import storyImage from '~/assets/blog/interstellar-story.webp';
+import storyImage from '~/assets/blog/33.jpg';
 
 import Timeline from '~/components/sections/Timeline.astro';
 import Section from '~/components/layout/Section.astro';
@@ -83,17 +83,17 @@ const teamMembers = [
   <ContentSection
     title={t['about.story.title']}
     image={storyImage}
-    imageAlt="Endurance spaceship approaching a wormhole"
+    imageAlt="مؤسسة طيف الاعمار للاصباغ والديكورات والترميات"
   >
     <Text>{t['about.story.p1']}</Text>
     <Text>{t['about.story.p2']}</Text>
     <Text>{t['about.story.p3']}</Text>
   </ContentSection>
 
-  <Container class="py-24">
+  <!-- <Container class="py-24">
     <Heading level={2} class="text-center mb-12">{t['about.timeline.title']}</Heading>
     <Timeline items={timelineItems} />
-  </Container>
+  </Container> -->
 
   <Section>
       <Container>
@@ -122,6 +122,51 @@ const teamMembers = [
               ))}
             </TeamSection>
           </div> -->
+          
+          <div class="mt-6 not-prose">
+            <h1 class="text-black text-3xl font-bold mb-2 container text-center">
+                       {t["nav.contact"]}
+                    </h1>
+                        <div class="flex items-center gap-4 justify-center">
+                            <a
+                                href="https://wa.me/971544748420"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center w-12 h-12 bg-[#25D366] text-white rounded-full transition-all duration-300 shadow-md hover:scale-105 active:scale-95 shrink-0"
+                                style="text-decoration: none;"
+                                aria-label="تواصل عبر الواتساب"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-6 h-6 block shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-4.01 3.96c-.14 0-.3.02-.45.05c-.15.03-.35.1-.5.25c-.24.23-.74.68-.74 1.65s.76 1.91 1.05 2.29c.29.38 1.7 2.65 4.12 3.65c.57.23 1.01.38 1.36.48c.57.17 1.1.15 1.51.09c.46-.07 1.42-.58 1.62-1.14c.2-.56.2-1.04.14-1.14c-.06-.1-.23-.16-.52-.3s-1.72-.85-1.98-.95c-.26-.11-.45-.16-.65.13c-.2.29-.75.96-.92 1.15c-.17.2-.34.23-.63.08c-.29-.14-1.23-.45-2.34-1.44c-.86-.77-1.44-1.72-1.61-2.01c-.17-.29-.02-.45.13-.59c.14-.13.29-.35.44-.52c.15-.17.2-.29.3-.48c.1-.2.05-.38-.02-.52c-.08-.14-.66-1.59-.9-2.18c-.23-.58-.47-.5-.65-.51c-.16-.01-.34-.01-.48-.01"
+                                    ></path>
+                                </svg>
+                            </a>
+
+                            <a
+                                href="tel:+971544748420"
+                                class="flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full transition-all duration-300 shadow-md hover:scale-105 active:scale-95 shrink-0"
+                                style="text-decoration: none;"
+                                aria-label="اتصل بنا"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-6 h-6 block shrink-0"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
       </Container>
   </Section>
 </Layout>

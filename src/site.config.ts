@@ -66,30 +66,30 @@ export const siteConfig = {
 
 export const NAV_LINKS = [
   { 
-    href: '/index', 
+    href: '/', 
     label: 'Product',
     children: [
-        { href: '/index', label: 'Features', description: 'What makes us different', icon: 'Zap' },
-        { href: '/pricing', label: 'Pricing', description: 'Plans for every team', icon: 'CreditCard' },
+        { href: '/', label: 'Features', description: 'What makes us different', icon: 'Zap' },
+        //{ href: '/pricing', label: 'Pricing', description: 'Plans for every team', icon: 'CreditCard' },
     ]
   },
   { 
-    href: '/docs', 
+    href: '/', 
     label: 'Resources',
     children: [
-        { href: '/docs/getting-started', label: 'Docs', description: 'Start building today', icon: 'Book', localize: false },
+        { href: '/design', label: 'Docs', description: 'Start building today', icon: 'Book' },
         { href: '/blog', label: 'Blog', description: 'Latest updates & guides', icon: 'Newspaper' },
-        { href: '/changelog', label: 'Changelog', description: 'New features & fixes', icon: 'FileClock' },
+        //{ href: '/changelog', label: 'Changelog', description: 'New features & fixes', icon: 'FileClock' },
     ]
   },
-  { 
-    href: '/portfolio', 
-    label: 'Work',
-    children: [
-        { href: '/portfolio', label: 'All Projects', description: 'Our complete portfolio', icon: 'LayoutGrid' },
-        { href: '/design', label: 'Design System', description: 'Style guide & tokens', icon: 'Palette' },
-    ]
-  },
+  // { 
+  //   href: '/portfolio', 
+  //   label: 'Work',
+  //   children: [
+  //       { href: '/portfolio', label: 'All Projects', description: 'Our complete portfolio', icon: 'LayoutGrid' },
+  //       { href: '/design', label: 'Design System', description: 'Style guide & tokens', icon: 'Palette' },
+  //   ]
+  // },
   { 
     href: '/about', 
     label: 'Company',
@@ -116,7 +116,7 @@ export const FOOTER_LINKS = {
   product: {
     title: 'Product',
     links: [
-      { href: '/index', label: 'Features' },
+      { href: '/', label: 'Features' },
       { href: '/about', label: 'About' },
       { href: '/blog', label: 'pricing' },
       { href: '/contact', label: 'Changelog' },
