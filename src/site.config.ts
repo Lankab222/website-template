@@ -118,7 +118,7 @@ export const FOOTER_LINKS = {
     links: [
       { href: '/features', label: 'Features' },
       { href: '/about', label: 'About' },
-      { href: '/blog', label: 'Blog' },
+      { href: '/blog', label: 'pricing' },
       { href: '/changelog', label: 'Changelog' },
     ],
   },
