@@ -119,7 +119,7 @@ export const FOOTER_LINKS = {
       { href: '/index', label: 'Features' },
       { href: '/about', label: 'About' },
       { href: '/blog', label: 'pricing' },
-      { href: '/changelog', label: 'Changelog' },
+      { href: '/contact', label: 'Changelog' },
     ],
   },
   legal: {
