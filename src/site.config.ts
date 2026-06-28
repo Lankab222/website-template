@@ -66,10 +66,10 @@ export const siteConfig = {
 
 export const NAV_LINKS = [
   { 
-    href: '/features', 
+    href: '/index', 
     label: 'Product',
     children: [
-        { href: '/features', label: 'Features', description: 'What makes us different', icon: 'Zap' },
+        { href: '/index', label: 'Features', description: 'What makes us different', icon: 'Zap' },
         { href: '/pricing', label: 'Pricing', description: 'Plans for every team', icon: 'CreditCard' },
     ]
   },
@@ -116,7 +116,7 @@ export const FOOTER_LINKS = {
   product: {
     title: 'Product',
     links: [
-      { href: '/features', label: 'Features' },
+      { href: '/index', label: 'Features' },
       { href: '/about', label: 'About' },
       { href: '/blog', label: 'pricing' },
       { href: '/changelog', label: 'Changelog' },
