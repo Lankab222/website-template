@@ -4,9 +4,9 @@ export const siteConfig = {
   name: 'مؤسسة طيف الاعمار للاصباغ والديكورات | 0544748420',
   description: 'مؤسسة طيف الاعمار للاصباغ والديكورات وجميع اعمال الترميمات. نوفر كادر فني متخصص، أسعار مناسبة، دقة وجودة في التنفيذ في جميع أعمالكم.',
   logo: {
-    src: '/logo.png',   //شعار الموقع 
-    srcDark: '/logo.png',       // Used when strategy is 'switch'
-    alt: 'Cooper Logo',
+    src: '/logo.svg',   //شعار الموقع 
+    srcDark: '/logo.svg',       // Used when strategy is 'switch'
+    alt: 'طيف الاعمار للاصباغ والديكورات', // شعار الموقع
     strategy: 'invert' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
   },
   ogImage: '/og-image1.jpg', // Default Open Graph image
