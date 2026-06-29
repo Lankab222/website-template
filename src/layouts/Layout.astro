@@ -92,7 +92,7 @@ const dir = isRtl(lang) ? 'rtl' : 'ltr';
                 }))
             }} />
         )}
-        <style is:global define:vars={{ primary: siteConfig.primaryColor }}>
+        <style is:global is:inline define:vars={{ primary: siteConfig.primaryColor }}>
           :theme {
             --color-primary: var(--primary);
           }
