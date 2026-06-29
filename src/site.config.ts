@@ -77,8 +77,9 @@ export const NAV_LINKS = [
     href: '/', 
     label: 'Resources',
     children: [
+      { href: '/blog', label: 'Blog', description: 'Latest updates & guides', icon: 'Newspaper' },
         { href: '/design', label: 'Docs', description: 'Start building today', icon: 'Book' },
-        { href: '/blog', label: 'Blog', description: 'Latest updates & guides', icon: 'Newspaper' },
+        
         //{ href: '/changelog', label: 'Changelog', description: 'New features & fixes', icon: 'FileClock' },
     ]
   },
