@@ -38,7 +38,7 @@ export const siteConfig = {
     }
   },
   analytics: {
-    alwaysLoad:'false',
+    alwaysLoad:'true',
     vendors: {
       googleAnalytics: {
         id:'G-3WY4E8G9SH',
