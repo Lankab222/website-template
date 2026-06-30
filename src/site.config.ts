@@ -38,11 +38,11 @@ export const siteConfig = {
     }
   },
   analytics: {
-    alwaysLoad: import.meta.env.ANALYTICS_ALWAYS_LOAD === 'true',
+    alwaysLoad:'true',
     vendors: {
       googleAnalytics: {
-        id: import.meta.env.GA_ID || '',
-        enabled: import.meta.env.GA_ENABLED === 'true',
+        id:'G-3WY4E8G9SH',
+        enabled:'true',
       },
       rybbit: {
         id: import.meta.env.RYBBIT_ID || '',
