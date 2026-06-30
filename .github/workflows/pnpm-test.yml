@@ -1,4 +1,4 @@
-name: pnpm Verification
+name: npm Verification
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Build & Check (pnpm)
+    name: Build & Check (npm)
     runs-on: ubuntu-latest
     env:
       ADAPTER: cloudflare
@@ -27,32 +27,29 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v5
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v5
-
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
       - name: Run Unit Tests (Vitest)
-        run: pnpm run test:unit
+        run: npm run test:unit
 
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install chromium --with-deps
+        run: npx playwright install chromium --with-deps
 
       - name: Type Check (Astro & TS)
-        run: pnpm exec astro check
+        run: npx astro check
 
       - name: Verify Production Build
-        run: pnpm run build
+        run: npm run build
 
       - name: Run E2E Tests (Playwright)
-        run: ADAPTER=node pnpm run test:e2e --project=chromium
+        run: ADAPTER=node npm run test:e2e --project=chromium
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v5
