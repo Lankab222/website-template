@@ -50,7 +50,7 @@ function getAdapter() {
 }
 
 export default defineConfig({
-  site: 'https://taifalemar.site/',
+  site: 'https://taifalemar.site/ar/',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co'],
