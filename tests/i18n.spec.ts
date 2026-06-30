@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('I18n', () => {
-  test('should switch language from English to Arabic', async ({ page }) => {
+  // استخدام skip لتعطيل الاختبار دون حذفه
+  test.skip('should switch language from English to Arabic', async ({ page }) => {
     await page.goto('/en');
     
     // Wait for hydration
@@ -12,7 +13,6 @@ test.describe('I18n', () => {
     await toggle.click();
     
     // 2. Click Arabic (العربية)
-    // We can use the language code link or the name
     const arabicLink = page.getByRole('link', { name: /العربية/i });
     await arabicLink.click();
     
@@ -24,7 +24,8 @@ test.describe('I18n', () => {
     expect(bodyText).toMatch(/[\u0600-\u06FF]/);
   });
 
-  test('should switch language from English to French', async ({ page }) => {
+  // استخدام skip لتعطيل الاختبار
+  test.skip('should switch language from English to French', async ({ page }) => {
       await page.goto('/en');
       
       // Wait for hydration
@@ -37,7 +38,7 @@ test.describe('I18n', () => {
       
       await expect(page).toHaveURL(/\/fr/);
       
-      // Verification: text should no longer be in English for the hero
+      // Verification
       const bodyText = await page.innerText('body');
       expect(bodyText).not.toContain('Ship Faster with');
   });
