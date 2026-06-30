@@ -49,7 +49,7 @@ jobs:
         run: npm run build
 
       - name: Run E2E Tests (Playwright)
-        run: ADAPTER=node npm run test:e2e --project=chromium
+        run: ADAPTER=node npm run test:e2e -- --project=chromium
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v5
