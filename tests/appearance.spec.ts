@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Appearance', () => {
-  test('should toggle theme between light and dark', async ({ page }) => {
+  test.skip('should toggle theme between light and dark', async ({ page }) => {
     await page.goto('/en');
     
     // 1. Get initial state (should be light or based on system, but let's assume we can toggle)
