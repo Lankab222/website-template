@@ -1,16 +1,16 @@
 ---
-import Header from '~/components/layout/Header.astro';
-import Footer from '~/components/layout/Footer.astro';
-import Analytics from '~/components/common/Analytics.astro';
-import SEO from '~/components/layout/SEO.astro';
-import Schema from '~/components/layout/Schema.astro';
-import CookieConsent from '~/components/common/CookieConsent.astro';
-import '../styles/global.css';
-import AnnouncementBanner from '~/components/sections/AnnouncementBanner.astro';
+import Header from "~/components/layout/Header.astro";
+import Footer from "~/components/layout/Footer.astro";
+import Analytics from "~/components/common/Analytics.astro";
+import SEO from "~/components/layout/SEO.astro";
+import Schema from "~/components/layout/Schema.astro";
+import CookieConsent from "~/components/common/CookieConsent.astro";
+import "../styles/global.css";
+import AnnouncementBanner from "~/components/sections/AnnouncementBanner.astro";
 
 interface Props {
-	title?: string;
-	description?: string;
+    title?: string;
+    description?: string;
     image?: string;
     imageWidth?: number;
     imageHeight?: number;
@@ -23,139 +23,181 @@ interface Props {
 }
 
 import { Font } from "astro:assets";
-import { siteConfig, ACTION_LINKS } from '~/site.config';
+import { siteConfig, ACTION_LINKS } from "~/site.config";
 
-
-import { defaultLang } from '~/i18n/ui';
-import { isRtl, useTranslations } from '~/i18n/utils';
+import { defaultLang } from "~/i18n/ui";
+import { isRtl, useTranslations } from "~/i18n/utils";
 
 const { lang = defaultLang } = Astro.params;
 const t = useTranslations(lang);
-const brandName = (t as any)['brand.name'] || siteConfig.name;
+const brandName = (t as any)["brand.name"] || siteConfig.name;
 
-const { 
-    title = brandName, 
-    description = siteConfig.description, 
-    image, 
+const {
+    title = brandName,
+    description = siteConfig.description,
+    image,
     imageWidth,
     imageHeight,
     imageAlt,
     article = false,
     noindex = false,
     nofollow = false,
-    availableLangs
+    availableLangs,
 } = Astro.props;
 
-const dir = isRtl(lang) ? 'rtl' : 'ltr';
+const dir = isRtl(lang) ? "rtl" : "ltr";
 ---
 
 <!doctype html>
 <html lang={lang} dir={dir}>
-	<head>
-		<meta charset="UTF-8" />
+    <head>
+        <meta charset="UTF-8" />
         <Font cssVariable="--font-inter" />
         <Font cssVariable="--font-outfit" />
-        <SEO 
-            title={title} 
-            description={description} 
+        <SEO
+            title={title}
+            description={description}
             keywords="صباغ رخيص في ابوظبي,أصباغ,اصباغ,صباغ,اصباغ جوتن,اصباغ وديكورات,ديكورات,ورق جدران,فوم,بديل الجبس,مقاولات عامة ,مقاولات,مقاول,مقاول ابوظبي,مقاول بني ياس,مقاول بني ياس ابوظبي"
-            image={image} 
+            image={image}
             imageWidth={imageWidth}
             imageHeight={imageHeight}
             imageAlt={imageAlt}
-            article={article} 
+            article={article}
             noindex={noindex}
             nofollow={nofollow}
         />
-        <Schema item={{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "مؤسسة طيف الاعمار للمقاولات",
-            "url": Astro.site,
-            "logo": new URL(siteConfig.logo.src, Astro.site).toString(),
-            "sameAs": [
-                ACTION_LINKS.social?.twitter,
-                ACTION_LINKS.social?.github,
-                ACTION_LINKS.social?.linkedin,
-                ACTION_LINKS.social?.facebook
-            ].filter(Boolean)
-        }} />
-         {Astro.url.pathname !== '/' && (
-            <Schema item={{
+        <Schema
+            item={{
                 "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": Astro.url.pathname.split('/').filter(Boolean).map((part, index, arr) => ({
-                    "@type": "ListItem",
-                    "position": index + 1,
-                    "name": part.charAt(0).toUpperCase() + part.slice(1).replace(/-/g, ' '),
-                    "item": new URL(arr.slice(0, index + 1).join('/'), Astro.site).toString()
-                }))
-            }} />
-        )}
-        <style is:global is:inline define:vars={{ primary: siteConfig.primaryColor }}>
-          :theme {
-            --color-primary: var(--primary);
-          }
+                "@type": "HomeAndConstructionBusiness", // نوع النشاط التجاري الدقيق لجوجل
+                name: "مؤسسة طيف الاعمار للاصباغ والديكورات",
+                description: siteConfig.description, // سيجلب الوصف العربي الذي كتبناه في الإعدادات
+                url: Astro.site,
+                telephone: siteConfig.contact.phone.main, // سيجلب رقم الهاتف من الإعدادات
+                logo: new URL(siteConfig.logo.src, Astro.site).toString(),
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "أبو ظبي",
+                    addressRegion: "بني ياس",
+                    addressCountry: "AE"
+                },
+                sameAs: [
+                    ACTION_LINKS.social?.twitter,
+                    ACTION_LINKS.social?.github,
+                    ACTION_LINKS.social?.linkedin,
+                    ACTION_LINKS.social?.facebook,
+                ].filter(Boolean),
+            }}
+        />
+        {
+            Astro.url.pathname !== "/" && (
+                <Schema
+                    item={{
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        itemListElement: Astro.url.pathname
+                            .split("/")
+                            .filter(Boolean)
+                            .map((part, index, arr) => ({
+                                "@type": "ListItem",
+                                position: index + 1,
+                                name:
+                                    part.charAt(0).toUpperCase() +
+                                    part.slice(1).replace(/-/g, " "),
+                                item: new URL(
+                                    arr.slice(0, index + 1).join("/"),
+                                    Astro.site,
+                                ).toString(),
+                            })),
+                    }}
+                />
+            )
+        }
+        <style
+            is:global
+            is:inline
+            define:vars={{ primary: siteConfig.primaryColor }}
+        >
+            :theme {
+                --color-primary: var(--primary);
+            }
         </style>
         <script is:inline>
             const getTheme = () => {
-                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-                    return localStorage.getItem('theme');
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
                 }
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    return 'dark';
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
                 }
-                return 'light';
+                return "light";
             };
             const theme = getTheme();
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
             } else {
-                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.remove("dark");
             }
         </script>
         <Analytics />
         <slot name="head" />
-		</head>
-		<body class="min-h-screen flex flex-col antialiased bg-background text-foreground selection:bg-primary selection:text-white">
+    </head>
+    <body
+        class="min-h-screen flex flex-col antialiased bg-background text-foreground selection:bg-primary selection:text-white"
+    >
         <div class="fixed inset-0 z-[-1] bg-background"></div>
 
         <div class="fixed top-0 w-full z-50 flex flex-col items-stretch">
-            {siteConfig.announcement?.enabled && (
-                <AnnouncementBanner 
-                    id={siteConfig.announcement.id}
-                    message={t['announcement.message']}
-                    link={
-                        siteConfig.announcement.localizeLink && siteConfig.announcement.link
-                            ? `/${lang}${siteConfig.announcement.link.startsWith('/') ? siteConfig.announcement.link : '/' + siteConfig.announcement.link}`
-                            : siteConfig.announcement.link
-                    }
-                    linkText={t['announcement.action']}
-                />
-            )}
+            {
+                siteConfig.announcement?.enabled && (
+                    <AnnouncementBanner
+                        id={siteConfig.announcement.id}
+                        message={t["announcement.message"]}
+                        link={
+                            siteConfig.announcement.localizeLink &&
+                            siteConfig.announcement.link
+                                ? `/${lang}${siteConfig.announcement.link.startsWith("/") ? siteConfig.announcement.link : "/" + siteConfig.announcement.link}`
+                                : siteConfig.announcement.link
+                        }
+                        linkText={t["announcement.action"]}
+                    />
+                )
+            }
             <Header availableLangs={availableLangs} />
         </div>
-		<main>
-			<slot />
-		</main>
+        <main>
+            <slot />
+        </main>
         <CookieConsent />
-		<Footer />
+        <Footer />
         <div class="fixed bottom-10 left-8 md:bottom-20 md:left-10 z-50">
-            <a 
-              href="https://wa.me/971544748420" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center relative group"
-              aria-label="تواصل معنا على واتساب"
+            <a
+                href="https://wa.me/971544748420"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center relative group"
+                aria-label="تواصل معنا على واتساب"
             >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-4.01 3.96c-.14 0-.3.02-.45.05c-.15.03-.35.1-.5.25c-.24.23-.74.68-.74 1.65s.76 1.91 1.05 2.29c.29.38 1.7 2.65 4.12 3.65c.57.23 1.01.38 1.36.48c.57.17 1.1.15 1.51.09c.46-.07 1.42-.58 1.62-1.14c.2-.56.2-1.04.14-1.14c-.06-.1-.23-.16-.52-.3s-1.72-.85-1.98-.95c-.26-.11-.45-.16-.65.13c-.2.29-.75.96-.92 1.15c-.17.2-.34.23-.63.08c-.29-.14-1.23-.45-2.34-1.44c-.86-.77-1.44-1.72-1.61-2.01c-.17-.29-.02-.45.13-.59c.14-.13.29-.35.44-.52c.15-.17.2-.29.3-.48c.1-.2.05-.38-.02-.52c-.08-.14-.66-1.59-.9-2.18c-.23-.58-.47-.5-.65-.51c-.16-.01-.34-.01-.48-.01"/>
-            </svg>
-    
-            <span class="absolute right-20 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-             تواصل معنا على واتساب
-            </span>
-             </a>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-8 h-8 md:w-10 md:h-10"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-4.01 3.96c-.14 0-.3.02-.45.05c-.15.03-.35.1-.5.25c-.24.23-.74.68-.74 1.65s.76 1.91 1.05 2.29c.29.38 1.7 2.65 4.12 3.65c.57.23 1.01.38 1.36.48c.57.17 1.1.15 1.51.09c.46-.07 1.42-.58 1.62-1.14c.2-.56.2-1.04.14-1.14c-.06-.1-.23-.16-.52-.3s-1.72-.85-1.98-.95c-.26-.11-.45-.16-.65.13c-.2.29-.75.96-.92 1.15c-.17.2-.34.23-.63.08c-.29-.14-1.23-.45-2.34-1.44c-.86-.77-1.44-1.72-1.61-2.01c-.17-.29-.02-.45.13-.59c.14-.13.29-.35.44-.52c.15-.17.2-.29.3-.48c.1-.2.05-.38-.02-.52c-.08-.14-.66-1.59-.9-2.18c-.23-.58-.47-.5-.65-.51c-.16-.01-.34-.01-.48-.01"
+                    ></path>
+                </svg>
+
+                <span
+                    class="absolute right-20 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap"
+                >
+                    تواصل معنا على واتساب
+                </span>
+            </a>
         </div>
-	</body>
+    </body>
 </html>

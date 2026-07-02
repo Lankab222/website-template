@@ -76,7 +76,7 @@ export default defineConfig({
   i18n: {
     defaultLocale: DEFAULT_LOCALE,
     locales: ["en", "ar", "fr", "de"],
-    routing: { prefixDefaultLocale: true }
+    routing: { prefixDefaultLocale: true },
   },
   integrations: [
     sitemap(), 
